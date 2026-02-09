@@ -32,25 +32,3 @@ This tool is for educational use only. Usage for illegal activities is strictly 
 
 ---
 
-### 2. `.gitignore`
-This file prevents unnecessary large files (build, dist) and personal settings from being added to GitHub.
-
-```text
-# Python environment
-__pycache__/
-*.py[cod]
-*$py.class
-venv/
-.env
-
-# PyInstaller build files
-build/
-dist/
-*.spec
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Temporary screenshot files
-temp_sc.jpg
