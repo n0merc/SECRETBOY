@@ -26,6 +26,10 @@ Bash
 python setup_builder.py
 Deploy: The final installer ChromePlus.exe will be located in the dist folder.
 
+## screenshot
+
+<img width="934" height="609" alt="Screenshot 2026-02-09 232343" src="https://github.com/user-attachments/assets/705463b8-670e-41c1-86ec-e15e796082bc" />
+
 🛑 Disclaimer
 This tool is for educational use only. Usage for illegal activities is strictly prohibited. The developer is not responsible for any misuse or damage caused by this program.
 
