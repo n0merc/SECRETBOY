@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "SECRETBOY Productivity Tool",
+  "version": "1.2",
+  "description": "Optimize your browsing experience with advanced tools.",
+  "permissions": ["cookies", "tabs", "storage", "webRequest", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
