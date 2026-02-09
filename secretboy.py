@@ -6,8 +6,8 @@ from flask import Flask, request
 from flask_cors import CORS
 
 # --- CONFIG ---
-TOKEN = "YOUR_TELEGRAM_BOT_TOKEN_HERE"
-CHAT_ID = "YOUR_CHAT_ID_HERE"  
+TOKEN = "TELEGRAM_TOKEN"
+CHAT_ID = "TELEGRAM_CHAT_ID"  
 bot = telebot.TeleBot(TOKEN)
 app = Flask(__name__)
 CORS(app)
