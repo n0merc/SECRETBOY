@@ -23,6 +23,8 @@ def check_config():
         print(f"3. Replace it with your actual Bot Token from @BotFather.")
         print(f"4. Replace CHAT_ID with your personal Telegram ID.")
         print(f"5. Save and Exit: Press Ctrl+O, Enter, then Ctrl+X.")
+        print(f"6. Run the script again.")
+        print("           enjoy!!!")
         print("\n" + "!"*60 + "\n")
         sys.exit(1)
 
